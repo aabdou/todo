@@ -1,0 +1,7 @@
+<div *ngFor="let todo of todos; let i = index">
+    <h3>{{ todo.title }}</h3>
+    <p>{{ todo.description }}</p>
+    <button name="edit" (click)="edit(i)" >Edit</button>
+    <button name="delete" (click)="delete(i)">Delete</button>
+    <button name="toggle" (click)="toggle(i)">Toggle</button>
+</div>
