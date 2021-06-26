@@ -14,21 +14,25 @@ export class TodosComponent implements OnInit {
   ngOnInit(): void {
     this.todos = [
       {
+        id: 1,
         title: "Grocery Shopping",
         description: "Go to wholefoods and buy veggies",
         completed: false
       },
-      {
+      { 
+        id: 2,
         title: "Car gas",
         description: "Gas up the car",
         completed: true
       },
       {
+        id: 3,
         title: "House cleaning",
         description: "Clean the house",
         completed: false
       },
       {
+        id: 4,
         title: "Haircut",
         description: "Get a haircut",
         completed: false
@@ -41,7 +45,7 @@ export class TodosComponent implements OnInit {
   }
 
   delete(i: number) {
-    const todos = this.todos.filter((el, index) => index != i);
+    const todos = this.todos.filter((el) => el.id != i);
 
     this.todos = todos;
   }
