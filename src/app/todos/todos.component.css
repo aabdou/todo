@@ -1,0 +1,29 @@
+.container {
+    margin: 0 50px;
+}
+
+mat-card {
+    margin-bottom: 25px;
+    padding: 25px 15px;
+    width: 300px;
+}
+
+mat-card-title {
+    color: #ffffff;
+    background-color: #673ab7;
+    padding: 10px;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+mat-card-actions button {
+    margin-left: 10px;
+}
+
+time {
+    display: block;
+    text-align: right;
+}

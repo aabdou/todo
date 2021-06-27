@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 import {Task} from '../../models/todo';
 import { TodoService } from '../todo.service';
 
@@ -10,14 +11,14 @@ import { TodoService } from '../todo.service';
 export class TodosComponent implements OnInit {
   todos: Task[] = [];
 
-  constructor(private todoService: TodoService) { }
+  constructor(private router: Router , private todoService: TodoService) { }
 
   ngOnInit(): void {
     this.todos = this.todoService.getTodos();
   }
 
   edit(i: number) {
-    console.log(i);
+    this.router.navigate(['/todo', {id: i}]);
   }
 
   delete(i: number) {

@@ -1,8 +1,27 @@
-<div *ngFor="let todo of todos">
-    <h3>{{ todo.title }}</h3>
-    <p>{{ todo.description }}</p>
-    <a routerLink="/todo/{{todo.id}}">edit</a>
-    <button name="delete" (click)="delete(todo.id)">Delete</button>
-    <button name="toggle" (click)="toggle(todo.id)">Toggle</button>
+<div class="container">
+    <mat-card *ngFor="let todo of todos">
+        
+        <mat-card-title>{{ todo.title }}</mat-card-title>
+        <mat-card-content>
+            {{ todo.description }}
+            <time [dateTime]="todo.dueDate | date: 'shortDate'">
+                Due: {{todo.dueDate | date: 'shortDate'}}
+            </time>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-mini-fab color="secondary" aria-label="Edit todo" (click)="edit(todo.id)">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-mini-fab color="secondary" aria-label="Delete todo" (click)="delete(todo.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-mini-fab color="secondary" aria-label="Toggle todo" (click)="toggle(todo.id)">
+                <mat-icon>done</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+
+    <button mat-mini-fab color="primary">
+        <mat-icon>add</mat-icon>
+    </button>
 </div>
-<a routerLink="/todo">Add Todo</a>
