@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Todo as TodoModel} from '../models/todo';
+import {Task} from '../models/todo';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +8,15 @@ export class TodoService {
 
   constructor() { }
 
-  getTodo(id: number): TodoModel | undefined {
+  getTodo(id: number): Task | undefined {
     return this.loadTodos().find(el => el.id == id);
   }
 
-  getTodos(): TodoModel[] {
+  getTodos(): Task[] {
     return this.loadTodos();
   }
 
-  saveTodo(todo: TodoModel): number {
+  saveTodo(todo: Task): number {
     const nextId = parseInt(window.localStorage.getItem('nextid') || "1");
     todo.id = nextId;
 
@@ -35,7 +35,7 @@ export class TodoService {
     window.localStorage.setItem('todos', JSON.stringify(todos));
   }
 
-  private loadTodos(): TodoModel[] {
+  private loadTodos(): Task[] {
     const tmp = window.localStorage.getItem('todos');
     let todos;
     if (tmp) {

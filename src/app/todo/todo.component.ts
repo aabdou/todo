@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
-import {Todo as TodoModel} from '../../models/todo' ; 
+import {Task} from '../../models/todo' ; 
 import { TodoService } from '../todo.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { TodoService } from '../todo.service';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  todo?: TodoModel;
+  todo?: Task;
 
   constructor(private route: ActivatedRoute, private todoService: TodoService) { }
 
@@ -19,7 +19,7 @@ export class TodoComponent implements OnInit {
       this.todo = this.todoService.getTodo(todoId);
     }
     else {
-      this.todo = new TodoModel();
+      this.todo = new Task();
     }
   }
 
