@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
 import {Todo as TodoModel} from '../../models/todo' ; 
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -7,13 +9,21 @@ import {Todo as TodoModel} from '../../models/todo' ;
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  @Input() todo: TodoModel = new TodoModel();
+  todo?: TodoModel;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private todoService: TodoService) { }
 
   ngOnInit(): void {
-  
+    const todoId = Number(this.route.snapshot.paramMap.get('id'));
+    if (todoId) {
+      this.todo = this.todoService.getTodo(todoId);
+    }
+    else {
+      this.todo = new TodoModel();
+    }
   }
 
-  save() {}
+  save() {
+    this.todoService.saveTodo(this.todo!);
+  }
 }
