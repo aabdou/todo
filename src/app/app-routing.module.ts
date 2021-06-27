@@ -7,6 +7,7 @@ const routes: Routes = [
   {path: 'todo', component: TodoComponent},
   {path: 'todos', component: TodosComponent},
   {path: 'todo/:id', component: TodoComponent},
+  { path: '',   redirectTo: '/todos', pathMatch: 'full' }
 ];
 
 @NgModule({
