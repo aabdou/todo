@@ -16,7 +16,21 @@ export class TodoService {
     return this.loadTodos();
   }
 
-  saveTodo(todo: Task): number {
+  saveTodo(todo: Task) {
+    const todos = this.loadTodos();
+    for (let i = 0; i < todos.length; i++) {
+      if (todos[i].id == todo.id) {
+        todos[i].title = todo.title;
+        todos[i].description = todo.description;
+        todos[i].completed = todo.completed;
+        todos[i].dueDate = todo.dueDate;
+      }
+    }
+
+    window.localStorage.setItem('todos', JSON.stringify(todos));
+  }
+
+  addTodo(todo: Task): number {
     const nextId = parseInt(window.localStorage.getItem('nextid') || "1");
     todo.id = nextId;
 

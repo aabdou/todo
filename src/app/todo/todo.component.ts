@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import {Task} from '../../models/todo' ; 
 import { TodoService } from '../todo.service';
 
@@ -11,7 +11,7 @@ import { TodoService } from '../todo.service';
 export class TodoComponent implements OnInit {
   todo?: Task;
 
-  constructor(private route: ActivatedRoute, private todoService: TodoService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private todoService: TodoService) { }
 
   ngOnInit(): void {
     const todoId = Number(this.route.snapshot.paramMap.get('id'));
@@ -24,6 +24,11 @@ export class TodoComponent implements OnInit {
   }
 
   save() {
-    this.todoService.saveTodo(this.todo!);
+    if (this.todo!.id == 0) {
+      this.todo!.id = this.todoService.addTodo(this.todo!);
+    }
+    else{
+      this.todoService.saveTodo(this.todo!);
+    }
   }
 }

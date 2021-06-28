@@ -32,4 +32,9 @@ export class TodosComponent implements OnInit {
 
     this.todos = todos;
   }
+
+  addTodo() {
+    console.log('funcking here');
+    this.router.navigate(['/todo']);
+  }
 }
