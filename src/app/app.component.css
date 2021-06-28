@@ -1,0 +1,9 @@
+div {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav {
+    min-height: 20px;
+    padding: 25px;
+}

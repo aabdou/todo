@@ -7,3 +7,8 @@ form {
 .mat-form-field {
   width: 250px;
 }
+
+mat-card {
+  margin: 0 auto;
+  width: 300px;
+}

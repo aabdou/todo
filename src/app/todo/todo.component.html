@@ -1,24 +1,24 @@
-<form (submit) = "save()" *ngIf="todo">
-    <mat-form-field appearance="standard">
-        <mat-label>Title</mat-label>
-        <input matInput name="title" type="text" maxlength="255" [(ngModel)]="todo.title" required/>
-    </mat-form-field>
-
-    <mat-form-field appearance="standard">
-        <mat-label>Description</mat-label>
-        <input matInput name="description" type="text" maxlength="255" [(ngModel)]="todo.description" required/>
-    </mat-form-field>
- 
-    <mat-form-field appearance="standard">
-        <mat-label>Due</mat-label>
-        <input matInput name="dueDate" [matDatepicker]="picker" [(ngModel)]="todo.dueDate" required/>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-
-    <button mat-fab color="primary" aria-label="Save todo" type="submit">
-        <mat-icon>save</mat-icon>
-    </button>
-</form>
-<a routerLink="/todos">Todos</a>
-
+<mat-card>
+    <form (submit) = "save()" *ngIf="todo">
+        <mat-form-field appearance="standard">
+            <mat-label>Title</mat-label>
+            <input matInput name="title" type="text" maxlength="255" [(ngModel)]="todo.title" required/>
+        </mat-form-field>
+    
+        <mat-form-field appearance="standard">
+            <mat-label>Description</mat-label>
+            <input matInput name="description" type="text" maxlength="255" [(ngModel)]="todo.description" required/>
+        </mat-form-field>
+     
+        <mat-form-field appearance="standard">
+            <mat-label>Due</mat-label>
+            <input matInput name="dueDate" [matDatepicker]="picker" [(ngModel)]="todo.dueDate" required/>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    
+        <button mat-fab color="primary" aria-label="Save todo" type="submit">
+            <mat-icon>save</mat-icon>
+        </button>
+    </form>    
+</mat-card>
