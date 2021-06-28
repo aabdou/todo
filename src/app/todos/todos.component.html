@@ -1,27 +1,79 @@
 <div class="container">
-    <mat-card *ngFor="let todo of todos">
-        
-        <mat-card-title>{{ todo.title }}</mat-card-title>
-        <mat-card-content>
-            {{ todo.description }}
-            <time [dateTime]="todo.dueDate | date: 'shortDate'">
-                Due: {{todo.dueDate | date: 'shortDate'}}
-            </time>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-mini-fab color="secondary" aria-label="Edit todo" (click)="edit(todo.id)">
-                <mat-icon>edit</mat-icon>
-            </button>
-            <button mat-mini-fab color="secondary" aria-label="Delete todo" (click)="delete(todo.id)">
-                <mat-icon>delete</mat-icon>
-            </button>
-            <button mat-mini-fab color="secondary" aria-label="Toggle todo" (click)="toggle(todo.id)">
-                <mat-icon>done</mat-icon>
-            </button>
-        </mat-card-actions>
-    </mat-card>
+    <div class="list">
+        <h1>Ontime</h1>
+        <mat-card *ngFor="let todo of ontime">
+            <mat-card-title>{{ todo.title }}</mat-card-title>
+            <mat-card-content>
+                {{ todo.description }}
+                <time [dateTime]="todo.dueDate | date: 'shortDate'">
+                    Due: {{todo.dueDate | date: 'shortDate'}}
+                </time>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-mini-fab color="secondary" aria-label="Edit todo" (click)="edit(todo.id)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-mini-fab color="secondary" aria-label="Delete todo" (click)="delete(todo.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-mini-fab color="secondary" aria-label="Toggle todo" (click)="toggle(todo.id)">
+                    <mat-icon>done</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 
-    <button mat-mini-fab color="primary" (click)="addTodo()">
-        <mat-icon>add</mat-icon>
-    </button>
+    <div class="list">
+        <h1>Completed</h1>
+        <mat-card *ngFor="let todo of completed">
+            <mat-card-title>{{ todo.title }}</mat-card-title>
+            <mat-card-content>
+                {{ todo.description }}
+                <time [dateTime]="todo.dueDate | date: 'shortDate'">
+                    Due: {{todo.dueDate | date: 'shortDate'}}
+                </time>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-mini-fab color="secondary" aria-label="Edit todo" (click)="edit(todo.id)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-mini-fab color="secondary" aria-label="Delete todo" (click)="delete(todo.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-mini-fab color="secondary" aria-label="Toggle todo" (click)="toggle(todo.id)">
+                    <mat-icon>undo</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    
+    <div class="list">
+        <h1>Overdue</h1>
+        <mat-card *ngFor="let todo of overdue">
+            <mat-card-title>{{ todo.title }}</mat-card-title>
+            <mat-card-content>
+                {{ todo.description }}
+                <time [dateTime]="todo.dueDate | date: 'shortDate'">
+                    Due: {{todo.dueDate | date: 'shortDate'}}
+                </time>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-mini-fab color="secondary" aria-label="Edit todo" (click)="edit(todo.id)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-mini-fab color="secondary" aria-label="Delete todo" (click)="delete(todo.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-mini-fab color="secondary" aria-label="Toggle todo" (click)="toggle(todo.id)">
+                    <mat-icon>done</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+    <div class="buttons">
+        <button mat-fab color="primary" (click)="addTodo()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
 </div>

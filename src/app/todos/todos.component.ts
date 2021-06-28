@@ -10,11 +10,14 @@ import { TodoService } from '../todo.service';
 })
 export class TodosComponent implements OnInit {
   todos: Task[] = [];
+  ontime: Task[] = [];
+  completed: Task[] = [];
+  overdue: Task[] = [];
 
   constructor(private router: Router , private todoService: TodoService) { }
 
   ngOnInit(): void {
-    this.todos = this.todoService.getTodos();
+    this.loadTodos();
   }
 
   edit(i: number) {
@@ -27,14 +30,24 @@ export class TodosComponent implements OnInit {
   }
 
   toggle(i: number) {
-    const todos = [...this.todos];
-    todos[i].completed = !todos[i].completed;
-
-    this.todos = todos;
+    const todo = this.todos.find(el => el.id == i);
+    if (todo) {
+      todo.completed = !todo.completed;
+      this.todoService.saveTodo(todo);
+      this.loadTodos();
+    }
   }
 
   addTodo() {
-    console.log('funcking here');
     this.router.navigate(['/todo']);
+  }
+
+  private loadTodos() {
+    const today = new Date();
+
+    this.todos = this.todoService.getTodos();
+    this.ontime = this.todos.filter(el => !el.completed && new Date(el.dueDate) >= today);
+    this.completed = this.todos.filter(el => el.completed);
+    this.overdue = this.todos.filter(el => !el.completed && new Date(el.dueDate) < today);
   }
 }

@@ -3,5 +3,5 @@ export class Task {
     title: string = "";
     description: string = "";
     completed: boolean = false;
-    dueDate?: Date;
+    dueDate: string = "";
 }

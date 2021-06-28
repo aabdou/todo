@@ -30,5 +30,7 @@ export class TodoComponent implements OnInit {
     else{
       this.todoService.saveTodo(this.todo!);
     }
+
+    this.router.navigate(['/todos']);
   }
 }
