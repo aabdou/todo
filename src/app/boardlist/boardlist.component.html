@@ -1,15 +1,20 @@
 <div class="container">
-    <mat-card *ngFor="let board of boards">
-        <mat-card-title>{{ board.name }}</mat-card-title>
-        <mat-card-actions>
-            <button mat-mini-fab color="secondary" (click)="gotoBoard(board.id)">
-                <mat-icon>list_alt</mat-icon>
-            </button>
-            <button mat-mini-fab color="secondary"><mat-icon>edit</mat-icon></button>
-            <button mat-mini-fab color="secondary"><mat-icon>delete</mat-icon></button>
-        </mat-card-actions>
-    </mat-card>
-
+    <h1>To-Do Boards</h1>
+    <mat-grid-list cols="3" rowHeight="150px">
+        <mat-grid-tile *ngFor="let board of boards">
+            <mat-card >
+                <mat-card-title>{{ board.name }}</mat-card-title>
+                <mat-card-actions>
+                    <button mat-mini-fab color="secondary" (click)="gotoBoard(board.id)">
+                        <mat-icon>list_alt</mat-icon>
+                    </button>
+                    <button mat-mini-fab color="secondary"><mat-icon>edit</mat-icon></button>
+                    <button mat-mini-fab color="secondary"><mat-icon>delete</mat-icon></button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
     <div class="buttons">
         <button mat-fab color="primary" (click)="addBoard()">
             <mat-icon>add</mat-icon>

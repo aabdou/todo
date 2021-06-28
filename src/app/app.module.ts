@@ -15,6 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { BoardlistComponent } from './boardlist/boardlist.component';
 import { BoardformComponent } from './boardform/boardform.component';
 
@@ -39,6 +40,7 @@ import { BoardformComponent } from './boardform/boardform.component';
     MatIconModule,
     MatCardModule,
     MatListModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
