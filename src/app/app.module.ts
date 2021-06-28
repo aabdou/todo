@@ -14,12 +14,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import { BoardlistComponent } from './boardlist/boardlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
-    TodoComponent
+    TodoComponent,
+    BoardlistComponent
   ],
   imports: [
     BrowserModule,
