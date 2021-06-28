@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { TodosComponent } from './todos/todos.component';
+import { BoardComponent } from './board/board.component';
 import { TodoComponent } from './todo/todo.component';
 import {MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule  } from '@angular/material/core'
@@ -18,7 +18,7 @@ import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent,
+    BoardComponent,
     TodoComponent
   ],
   imports: [

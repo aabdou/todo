@@ -4,11 +4,11 @@ import {Task} from '../../models/todo';
 import { TodoService } from '../todo.service';
 
 @Component({
-  selector: 'app-todos',
-  templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.css']
+  selector: 'app-board',
+  templateUrl: './board.component.html',
+  styleUrls: ['./board.component.css']
 })
-export class TodosComponent implements OnInit {
+export class BoardComponent implements OnInit {
   todos: Task[] = [];
   ontime: Task[] = [];
   completed: Task[] = [];
