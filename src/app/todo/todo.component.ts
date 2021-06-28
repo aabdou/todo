@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
+import { Location } from '@angular/common';
 import {Task} from '../../models/todo' ; 
 import { TodoService } from '../todo.service';
 
@@ -10,13 +11,16 @@ import { TodoService } from '../todo.service';
 })
 export class TodoComponent implements OnInit {
   todo?: Task;
+  boardId: string = "";
 
-  constructor(private router: Router, private route: ActivatedRoute, private todoService: TodoService) { }
+  constructor(private location: Location, private router: Router, private route: ActivatedRoute, private todoService: TodoService) { }
 
   ngOnInit(): void {
     const todoId = Number(this.route.snapshot.paramMap.get('id'));
+    this.boardId = this.route.snapshot.paramMap.get('boardId') || "";
+
     if (todoId) {
-      this.todo = this.todoService.getTodo(todoId);
+      this.todo = this.todoService.getTodo(this.boardId, todoId);
     }
     else {
       this.todo = new Task();
@@ -25,12 +29,13 @@ export class TodoComponent implements OnInit {
 
   save() {
     if (this.todo!.id == 0) {
-      this.todo!.id = this.todoService.addTodo(this.todo!);
+      this.todo!.id = this.todoService.addTodo(this.boardId, this.todo!);
     }
     else{
-      this.todoService.saveTodo(this.todo!);
+      this.todoService.saveTodo(this.boardId, this.todo!);
     }
 
-    this.router.navigate(['/todos']);
+    //this.router.navigate(['/board', {id: this.boardId}]);
+    this.location.back();
   }
 }

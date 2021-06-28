@@ -1,0 +1,25 @@
+a {
+    display: block;
+    text-decoration: none;
+}
+
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    width: 150px;
+}
+
+mat-card {
+    margin-bottom: 25px;
+    padding: 25px 15px;
+    width: 300px;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+mat-card-actions button {
+    margin-left: 10px;
+}

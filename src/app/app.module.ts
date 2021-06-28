@@ -14,14 +14,17 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 import { BoardlistComponent } from './boardlist/boardlist.component';
+import { BoardformComponent } from './boardform/boardform.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
     TodoComponent,
-    BoardlistComponent
+    BoardlistComponent,
+    BoardformComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { BoardlistComponent } from './boardlist/boardlist.component';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

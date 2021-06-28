@@ -1,0 +1,13 @@
+<mat-card>
+    <mat-card-title>Tasks Board</mat-card-title>
+    <form (submit) = "save()" *ngIf="board">
+        <mat-form-field appearance="standard">
+            <mat-label>Name</mat-label>
+            <input matInput name="name" type="text" maxlength="255" [(ngModel)]="board.name" required/>
+        </mat-form-field>
+    
+        <button mat-fab color="primary" aria-label="Save board" type="submit">
+            <mat-icon>save</mat-icon>
+        </button>
+    </form>    
+</mat-card>

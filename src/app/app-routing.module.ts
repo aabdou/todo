@@ -2,12 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TodoComponent } from './todo/todo.component';
 import { BoardComponent } from './board/board.component';
+import { BoardlistComponent } from './boardlist/boardlist.component';
+import { BoardformComponent } from './boardform/boardform.component';
 
 const routes: Routes = [
-  {path: 'todo', component: TodoComponent},
-  {path: 'todos', component: BoardComponent},
-  {path: 'todo/:id', component: TodoComponent},
-  { path: '',   redirectTo: '/todos', pathMatch: 'full' }
+  {path: 'newboard', component: BoardformComponent},
+  {path: 'boards', component: BoardlistComponent},
+  {path: 'board/:id', component: BoardComponent},
+  {path: 'newtodo', component: TodoComponent},
+  {path: 'todo/:boardId/:id', component: TodoComponent},
+  { path: '',   redirectTo: '/boards', pathMatch: 'full' }
 ];
 
 @NgModule({

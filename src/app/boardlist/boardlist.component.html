@@ -1,1 +1,20 @@
-<p>boardlist works!</p>
+<div class="container">
+    <mat-card *ngFor="let board of boards">
+        <mat-card-title>{{ board.name }}</mat-card-title>
+        <mat-card-actions>
+            <button mat-mini-fab color="secondary" (click)="gotoBoard(board.id)">
+                <mat-icon>list_alt</mat-icon>
+            </button>
+            <button mat-mini-fab color="secondary"><mat-icon>edit</mat-icon></button>
+            <button mat-mini-fab color="secondary"><mat-icon>delete</mat-icon></button>
+        </mat-card-actions>
+    </mat-card>
+
+    <div class="buttons">
+        <button mat-fab color="primary" (click)="addBoard()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>
+
+

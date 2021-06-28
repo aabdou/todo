@@ -8,16 +8,16 @@ export class TodoService {
 
   constructor() { }
 
-  getTodo(id: number): Task | undefined {
-    return this.loadTodos().find(el => el.id == id);
+  getTodo(boardId: string, id: number): Task | undefined {
+    return this.loadTodos(boardId).find(el => el.id == id);
   }
 
-  getTodos(): Task[] {
-    return this.loadTodos();
+  getTodos(boardId: string): Task[] {
+    return this.loadTodos(boardId);
   }
 
-  saveTodo(todo: Task) {
-    const todos = this.loadTodos();
+  saveTodo(boardId: string, todo: Task) {
+    const todos = this.loadTodos(boardId);
     for (let i = 0; i < todos.length; i++) {
       if (todos[i].id == todo.id) {
         todos[i].title = todo.title;
@@ -27,30 +27,30 @@ export class TodoService {
       }
     }
 
-    window.localStorage.setItem('todos', JSON.stringify(todos));
+    window.localStorage.setItem(boardId, JSON.stringify(todos));
   }
 
-  addTodo(todo: Task): number {
+  addTodo(boardId: string, todo: Task): number {
     const nextId = parseInt(window.localStorage.getItem('nextid') || "1");
     todo.id = nextId;
 
-    const todos = this.loadTodos();
+    const todos = this.loadTodos(boardId);
     todos.push(todo);
 
-    window.localStorage.setItem('todos', JSON.stringify(todos));
+    window.localStorage.setItem(boardId, JSON.stringify(todos));
     window.localStorage.setItem('nextid', (nextId + 1).toString());
 
     return nextId;
   }
 
-  deleteTodo(id: number) {
-    const todos = this.loadTodos().filter(el => el.id != id);
+  deleteTodo(boardId: string, id: number) {
+    const todos = this.loadTodos(boardId).filter(el => el.id != id);
 
-    window.localStorage.setItem('todos', JSON.stringify(todos));
+    window.localStorage.setItem(boardId, JSON.stringify(todos));
   }
 
-  private loadTodos(): Task[] {
-    const tmp = window.localStorage.getItem('todos');
+  private loadTodos(boardId: string): Task[] {
+    const tmp = window.localStorage.getItem(boardId);
     let todos;
     if (tmp) {
       todos = JSON.parse(tmp);
