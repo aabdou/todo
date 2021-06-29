@@ -9,6 +9,10 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+}
+
 mat-card {
     margin-bottom: 25px;
     padding: 25px 15px;

@@ -35,7 +35,6 @@ export class TodoComponent implements OnInit {
       this.todoService.saveTodo(this.boardId, this.todo!);
     }
 
-    //this.router.navigate(['/board', {id: this.boardId}]);
-    this.location.back();
+    this.router.navigate(['/board/:id', {id: this.boardId}]);
   }
 }

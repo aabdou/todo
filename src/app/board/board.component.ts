@@ -24,7 +24,7 @@ export class BoardComponent implements OnInit {
   }
 
   edit(i: number) {
-    this.router.navigate(['/todo', {boardId: this.boardId, id: i}]);
+    this.router.navigate(['/todo/:boardId/:id', {boardId: this.boardId, id: i}]);
   }
 
   delete(i: number) {

@@ -1,6 +1,6 @@
 <div class="container">
     <h1>To-Do Boards</h1>
-    <mat-grid-list cols="3" rowHeight="150px">
+    <mat-grid-list cols="3" rowHeight="150px" *ngIf="boards.length > 0; else elseBlock">
         <mat-grid-tile *ngFor="let board of boards">
             <mat-card >
                 <mat-card-title>{{ board.name }}</mat-card-title>
@@ -14,6 +14,9 @@
             </mat-card>
         </mat-grid-tile>
     </mat-grid-list>
+    <ng-template #elseBlock>
+        <h2>Nothing to see here! Create a board to add To-Dos.</h2> 
+    </ng-template>
     
     <div class="buttons">
         <button mat-fab color="primary" (click)="addBoard()">
